@@ -1,0 +1,53 @@
+﻿@page
+@model RazorPageDemo.Pages.Students.CreateModel
+@{
+    ViewData["Title"] = "Create Student";
+}
+<div class="row mb-3 mt-3">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Student.Name" class="col-form-label"></label>
+                <input asp-for="Student.Name" class="form form-control" />
+                <span asp-validation-for="Student.Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Student.Email" class="col-form-label"></label>
+                <input asp-for="Student.Email" class="form-control" />
+                <span asp-validation-for="Student.Email" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Student.Age" class="col-form-label"></label>
+                <input asp-for="Student.Age" class="form-control" />
+                <span asp-validation-for="Student.Age" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Student.Gender" class="col-form-label"></label>
+                <input asp-for="Student.Gender" class="form-control" />
+                <span asp-validation-for="Student.Gender" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Student.DepartmentId" class="form-label mt-4">Department</label>
+                <select asp-for="Student.DepartmentId" class="form-select">
+                    @foreach (var item in Model.Departments)
+                    {
+                        <option value="@item.Id">@item.DeptName</option>
+                    }
+                </select>
+                <span asp-validation-for="Student.DepartmentId" class="text-danger"></span>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

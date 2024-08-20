@@ -1,0 +1,9 @@
+﻿@page "{id?}"
+@model RazorPageDemo.Pages.Students.DetailsModel
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h1 class="alert alert-danger">@Model.student.Name :: @Model.student.Email:: @Model.student.Department.DeptName</h1>
+
+
